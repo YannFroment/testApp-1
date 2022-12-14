@@ -1,0 +1,73 @@
+.theme-light {
+    --color-primary: #131313;
+    --bg-color: #f8f8f8;
+}
+.theme-dark {
+    --color-primary: #ececec;
+    --bg-color: #0e0e0e;
+}
+
+body {
+  background: url('../assets/images/bg-corridor-graphic.png') no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+}
+
+.main {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "nav article aside"
+      "footer footer footer";
+    grid-template-rows: 200px 1fr 70px;
+    grid-template-columns: 20% 1fr 15%;
+    height: 100vh;
+    margin: 0;
+    color: var(--color-primary);
+    }
+  header, footer, article, nav, aside {
+    padding: 1.2em;
+    /* background: var(--bg-color); */
+    }
+  #pageHeader {
+    grid-area: header;
+    }
+  #pageFooter {
+    grid-area: footer;
+    }
+  #mainArticle {
+    grid-area: article;
+    }
+  #leftNav {
+    grid-area: nav;
+    }
+  #siteAds {
+    grid-area: aside;
+    }
+  @media all and (max-width: 575px) {
+    body {
+      grid-template-areas:
+        "header"
+        "article"
+        "aside"
+        "nav"
+        "footer";
+      grid-template-rows: 80px 1fr 70px 1fr 70px;
+      grid-template-columns: 1fr;
+   }
+}
+
+.style-chooser .vs__search::placeholder,
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu {
+  background: #dfe5fb;
+  border: none;
+  color: #394066;
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+.style-chooser .vs__clear,
+.style-chooser .vs__open-indicator {
+  fill: #394066;
+}
