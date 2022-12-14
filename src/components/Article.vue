@@ -34,9 +34,9 @@
       <div v-if="showCongratsMessage" tabindex="0" class="card margin-top--20 congrats">Thanks a lot, we're coming !</div>
 
       <div class="container-card margin-top--20">
-        <div v-for="(ticket, i) in tickets" :key="i" class="card">
+        <div v-for="(ticket, i) in tickets" :key="i" class="card" @click="byTicket(ticket, i)">
           <img v-if="ticket" src="@/assets/images/logo-elevator.png" class="logo-card" alt="logo" />
-          <div @click="byTicket(ticket, i)" v-html="ticketSentence(ticket)" />
+          <div v-html="ticketSentence(ticket)" />
         </div>
       </div>
   </div>
