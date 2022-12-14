@@ -65,7 +65,7 @@ export default {
   computed: {
     ...mapState('navInterface', ['companyInterface']),
     ...mapState('companyDates', ['companyDates', 'bookedTickets']),
-    
+
     isRange() {
       return this.recurrent || !this.companyInterface
     }
@@ -97,8 +97,8 @@ export default {
       if (ticket.dateStart !== null) {
         this.m__addBookedTicket({ticket})
         let avaibilities = new AvaibilitiesClass({
-          recurrent: this.isRange, 
-          startDate: this.selectedDate.start, 
+          recurrent: this.isRange,
+          startDate: this.selectedDate.start,
           endDate: this.selectedDate.end,
           tickets: this.tickets,
           bookedTickets: this.bookedTickets
@@ -113,9 +113,9 @@ export default {
       let result = []
       if (this.recurrent) {
         avaibilities = new AvaibilitiesClass({
-          recurrent: this.isRange, 
-          startDate: this.selectedDate.start, 
-          endDate: this.selectedDate.end, 
+          recurrent: this.isRange,
+          startDate: this.selectedDate.start,
+          endDate: this.selectedDate.end,
           bookedTickets: this.bookedTickets
         })
         result = avaibilities.addAvaibilities({
@@ -127,9 +127,9 @@ export default {
         })
       } else {
         avaibilities = new AvaibilitiesClass({
-          recurrent: this.isRange, 
-          startDate: this.selectedDate, 
-          endDate: this.selectedDate, 
+          recurrent: this.isRange,
+          startDate: this.selectedDate,
+          endDate: this.selectedDate,
           bookedTickets: this.bookedTickets
         })
         result = avaibilities.addAvaibilities({
@@ -147,9 +147,9 @@ export default {
 
     checkForAvaibilities() {
       let avaibilities = new AvaibilitiesClass({
-        recurrent: this.isRange, 
-        startDate: this.selectedDate.start, 
-        endDate: this.selectedDate.end, 
+        recurrent: this.isRange,
+        startDate: this.selectedDate.start,
+        endDate: this.selectedDate.end,
         bookedTickets: this.bookedTickets
       })
       this.tickets = avaibilities.checkForAvaibilities(this.companyDates)

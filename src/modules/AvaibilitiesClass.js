@@ -1,16 +1,16 @@
 import { getYear, getMonth, getDate, getMinutes, differenceInMinutes, addMinutes } from 'date-fns'
 export default class AvaibilitiesClass {
   constructor({
-    recurrent = null, 
-    startDate = null, 
-    endDate = null, 
-    customerDates = [], 
-    companyDates = [], 
-    matchingDays = [], 
+    recurrent = null,
+    startDate = null,
+    endDate = null,
+    customerDates = [],
+    companyDates = [],
+    matchingDays = [],
     tickets = [],
     bookedTickets = []
   }) {
-    
+
     this.recurrent = recurrent
     this.startDate = startDate
     this.endDate = endDate
@@ -68,7 +68,7 @@ export default class AvaibilitiesClass {
 
       const startInterval = new Date(this.matchingDays[0].startInterval)
       const endInterval = new Date(this.matchingDays[this.matchingDays.length - 1].endInterval)
-      
+
       const minutesLength = differenceInMinutes(
         startInterval,
         endInterval
@@ -90,7 +90,7 @@ export default class AvaibilitiesClass {
           start = addMinutes(start, 30)
 
           if (this.bookedTickets.length) {
-            const ticketIsNotBooked = !this.bookedTickets.find(el => this.bookedTickets.find(el => el.dateStart.getTime() === dateStart.getTime() && el.dateEnd.getTime() == start.getTime()))
+            const ticketIsNotBooked = !this.bookedTickets.find(el => el.dateStart.getTime() === dateStart.getTime() && el.dateEnd.getTime() == start.getTime())
             if (ticketIsNotBooked) {
               result.push({
                   dateStart,
@@ -103,7 +103,7 @@ export default class AvaibilitiesClass {
               dateEnd: start
             });
           }
-        }
+        } 
       }
       return result
     } else {
