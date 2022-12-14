@@ -35,7 +35,7 @@
 
       <div class="container-card margin-top--20">
         <div v-for="(ticket, i) in tickets" :key="i" class="card" @click="byTicket(ticket, i)">
-          <img v-if="ticket" src="@/assets/images/logo-elevator.png" class="logo-card" alt="logo" />
+          <img src="@/assets/images/logo-elevator.png" class="logo-card" alt="logo" />
           <div v-html="ticketSentence(ticket)" />
         </div>
       </div>
